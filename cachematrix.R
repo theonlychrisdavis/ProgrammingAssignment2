@@ -1,10 +1,16 @@
-## Put comments here that give an overall description of what your
-## functions do
-
+## 
+## makeCacheMatrix creates a cache through which matrix inversion operations are retained.
+## cacheSolve uses stored results from matrix inversion, or solves the inversion itself.
 
 ## makeCacheMatrix create the cache in which the matrix and its inverse will be stored.
 ## It returns a list of functions used to work with the cache.
 makeCacheMatrix <- function(x = matrix()) {
+    
+    ## Error check
+    if (!is.matrix(x)) {
+        message("You must supply a matrix")
+        return()
+    }
     
     ## Start fresh
     inv <- NULL
